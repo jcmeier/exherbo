@@ -1,0 +1,14 @@
+# Copyright (c) 2009 Jan Meier
+# Distributed under the terms of the GNU General Public License v2
+require distutils
+
+SUMMARY="MySQL module for Python"
+HOMEPAGE="http://mysql-python.sf.net/"
+DOWNLOADS="http://kent.dl.sourceforge.net/sourceforge/mysql-python/MySQL-python-${PV}.tar.gz"
+LICENCES="PSF"
+SLOT="0"
+PLATFORMS="~x86" 
+DEPENDENCIES="
+    dev-python/setuptools
+"
+WORK="${WORKBASE}/MySQL-python-1.2.2"

@@ -1,15 +1,6 @@
 # Copyright (c) 2009 Jan Meier
 # Distributed under the terms of the GNU General Public License v2
-require distutils
+require django
 
-SUMMARY="The Web framework for perfectionists with deadlines"
-HOMEPAGE="http://www.djangoproject.com"
-DOWNLOADS="http://www.djangoproject.com/download/1.0.2/tarball/ -> django-1.0.2.tar.gz"
-LICENCES="BSD"
-SLOT="0"
-PLATFORMS="~x86" 
-DEPENDENCIES="
-    dev-python/setuptools
-    dev-python/mysql-python
-"
-WORK="${WORKBASE}/Django-1.0.2-final"
+PLATFORMS="~x86"
+

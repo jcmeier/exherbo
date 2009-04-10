@@ -1,0 +1,24 @@
+# Copyright (c) 2009 Jan Meier
+# Distributed under the terms of the GNU General Public License v2
+
+SUMMARY="SDK for the Java programming language"
+HOMEPAGE="http://java.sun.com"
+DOWNLOADS="http://download.java.net/dlj/binaries/jdk-6u12-dlj-linux-i586.bin -> sun-java-sdk-1.6.12.bin"
+LICENCES="SUN"
+SLOT="1.6"
+PLATFORMS="~x86 ~amd64"
+DEPENDENCIES="
+	sys-libs/glibc
+"
+WORK="${WORKBASE}/jdk1.6.0_12"
+IMAGE_PATH="${IMAGE}/opt/${PNV}/"
+src_unpack() {
+	sh ${FETCHEDDIR}/sun-java-sdk-1.6.12.bin --accept-license --unpack
+}
+
+src_install() {
+	mkdir -p ${IMAGE_PATH}
+	cp -vR ${WORK}/* ${IMAGE_PATH}
+	keepdir /opt/${PNV}/jre/lib/applet
+	keepdir /opt/${PNV}/db/demo/programs/localcal/lib
+}

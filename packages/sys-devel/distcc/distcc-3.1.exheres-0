@@ -1,0 +1,43 @@
+# Copyright (c) 2009 Jan Meier
+# Distributed under the terms of the GNU General Public License v2
+# Based in part upon 'distcc-3.1-r1.ebuild' from Gentoo, which is:
+#     Copyright 1999-2009 Gentoo Foundation
+require eutils
+
+SUMMARY="Distributed compilation for faster C/C++ builds"
+HOMEPAGE="http://www.distcc.org/"
+DOWNLOADS="http://distcc.googlecode.com/files/${PNV}.tar.bz2"
+LICENCES="GPLv2"
+SLOT="0"
+PLATFORMS="~x86 ~amd64"
+MYOPTIONS="gtk"
+DEPENDENCIES="
+	gtk? ( >=x11-libs/gtk+-2 )
+"
+
+DISTCC_PATH="/usr/lib/distcc/bin/"
+
+pkg_setup() {
+	 enewuser distcc -1 -1 /dev/null daemon || die "Adding user failed"
+}
+
+src_configure() {
+	econf \
+		$(option_enable gtk)
+}
+
+src_install() {
+	emake -j1 DESTDIR="${IMAGE}" install || die "Install failed!"
+
+	dodir "${DISTCC_PATH}"
+	for f in cc c++ gcc g++; do
+		dosym /usr/bin/distcc "${DISTCC_PATH}/${f}"
+        if [ "${f}" != "cc" ]; then
+            dosym /usr/bin/distcc "${DISTCC_PATH}/${CTARGET:-${CHOST}}-${f}"
+        fi
+    done
+	keepdir /var/run/distccd/
+	fowners distcc:daemon /var/run/distccd
+	newinitd ${FILES}/distcc-initscript distccd
+	newconfd ${FILES}/distcc-init-config distccd
+}

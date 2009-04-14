@@ -1,16 +1,6 @@
 # Copyright (c) 2009 Jan Meier
 # Distributed under the terms of the GNU General Public License v2
 
-SUMMARY="Windows 32-bit binary codecs for video and audio playback support"
-HOMEPAGE="http://www.mplayerhq.hu"
-DOWNLOADS="http://www.mplayerhq.hu/MPlayer/releases/codecs/essential-${PV}.tar.bz2 -> win32codes-${PV}.tar.bz2"
-LCENCES="as-is"
-SLOT="0"
-PLATFORMS="~x86"
+require win32codecs
 
-WORK="${WORKBASE}/essential-${PV}"
-src_install() {
-    dodir /usr/lib/win32/
-    insinto /usr/lib/win32
-    doins *.dll *.ax *.xa *.vwp *.drv *.DLL
-}
+PLATFORM="~x86"

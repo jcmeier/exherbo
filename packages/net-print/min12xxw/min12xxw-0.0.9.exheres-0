@@ -1,0 +1,9 @@
+# Copyright (c) 2009 Jan Meier
+# Distributed under the terms of the GNU General Public License v2
+
+SUMMARY="Driver for the Minolta PagePro 1[234]xxW printers"
+HOMEPAGE="http://hinterbergen.de/mala/min12xxw/"
+DOWNLOADS="http://hinterbergen.de/mala/min12xxw/${PNV}.tar.gz"
+SLOT="0"
+LICENCES="GPLv2"
+PLATFORMS="~x86"

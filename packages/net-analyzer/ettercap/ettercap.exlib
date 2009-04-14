@@ -1,0 +1,38 @@
+# Copyright (c) 2009 Jan Meier
+# Distributed under the terms of the GNU General Public License v2
+# Based in part upon 'ettercap-0.7.3-r3.ebuild' from Gentoo, which is:
+#     Copyright 1999-2009 Gentoo Foundation
+
+SUMMARY="A suite for man in the middle attacks on LAN"
+HOMEPAGE="http://ettercap.sourceforge.net/"
+DOWNLOADS="http://kent.dl.sourceforge.net/sourceforge/ettercap/ettercap-NG-0.7.3.tar.gz"
+LICENCES="GPLv2"
+SLOT="0"
+MYOPTIONS="gtk ncurses ssl"
+WORK="${WORKBASE}/ettercap-NG-0.7.3"
+DEPENDENCIES="
+	>=net-libs/libnet-1.1.2.1
+	dev-libs/libpcap
+	ncurses? ( sys-libs/ncurses ) 
+	ssl? ( dev-libs/openssl )
+	gtk? ( >=x11-libs/gtk+-2 )
+"
+
+src_configure() {
+	local myconf
+	if option ssl; then
+		myconf="${myconf} --with-opennssl=/usr"
+	else
+		myconf="${myconf} --without-openssl"
+	fi
+
+	if option ncurses; then
+		myconf="${myconf} --with-libncurses=/usr"
+	else
+		myconf="${myconf} --without-libncurses"
+	fi
+	
+	econf ${myconf} \
+		$(option_enable gtk)
+}
+

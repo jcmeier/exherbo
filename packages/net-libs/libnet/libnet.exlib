@@ -1,0 +1,12 @@
+# Copyright (c) 2009 Jan Meier
+# Distributed under the terms of the GNU General Public License v2
+
+SUMMARY="libnet is a API allowing the application programmer to construct and inject network packets"
+HOMEPAGE="http://www.packetfactory.net/libnet/"
+DOWNLOADS="http://www.packetfactory.net/libnet/dist/libnet.tar.gz -> libnet-1.1.2.1.tar.gz"
+LICENCES="GPLv2"
+SLOT="0"
+DEPENDENCIES="
+	sys-devel/autoconf
+"
+WORK="${WORKBASE}/libnet/"

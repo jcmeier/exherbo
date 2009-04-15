@@ -6,7 +6,6 @@ SUMMARY="Windows 32-bit binary codecs for video and audio playback support"
 HOMEPAGE="http://www.mplayerhq.hu"
 DOWNLOADS="http://www.mplayerhq.hu/MPlayer/releases/codecs/essential-${PV}.tar.bz2 -> win32codes-${PV}.tar.bz2"
 LCENCES="as-is"
-SLOT="0"
 
 WORK="${WORKBASE}/essential-${PV}"
 src_install() {

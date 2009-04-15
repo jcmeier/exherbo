@@ -1,0 +1,12 @@
+# Copyright (c) 2009 Jan Meier
+# Distributed under the terms of the GNU General Public License v2
+require distutils
+
+SUMMARY="Psyco is a Python extension module which can massively speed up the execution of any Python code."
+HOMEPAGE="http://psyco.sourceforge.net/"
+DOWNLOADS="http://ovh.dl.sourceforge.net/sourceforge/psyco/${PNV}-src.tar.gz"
+LICENCES="BSD"
+SLOT="0"
+DEPENDENCIES="
+    dev-python/setuptools
+"

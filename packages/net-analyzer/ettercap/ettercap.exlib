@@ -11,7 +11,7 @@ SLOT="0"
 MYOPTIONS="gtk ncurses ssl"
 WORK="${WORKBASE}/ettercap-NG-0.7.3"
 DEPENDENCIES="
-	>=net-libs/libnet-1.1.2.1
+	net-libs/libnet[>=1.1.2.1]
 	dev-libs/libpcap
 	ncurses? ( sys-libs/ncurses ) 
 	ssl? ( dev-libs/openssl )

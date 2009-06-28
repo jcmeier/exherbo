@@ -1,40 +1,7 @@
 # Copyright (c) 2009 Jan Meier
-# Distributed under the terms of the GNU General Public License v2
-# Based in part upon 'kismet-2008.05.01.ebuild' from Gentoo, which is:
-#     Copyright 1999-2009 Gentoo Foundation
+require kismet
 
-SUMMARY="Kismet wireless sniffer"
-HOMEPAGE="http://www.kismetwireless.net"
 DOWNLOADS="http://www.kismetwireless.net/code/kismet-2008-05-R1.tar.gz -> kismet-2008.05.1.tar.gz"
-LICENCES="GPLv2"
 SLOT="0"
 PLATFORMS="~x86 ~amd64"
-MYOPTIONS="ncurses"
-DEPENDENCIES="
-	net-wireless/wireless_tools
-	dev-libs/libpcap
-	ncurses? ( sys-libs/ncurses ) 
-"
-WORK="${WORKBASE}/kismet-2008-05-R1"
 
-src_configure() {
-	local myconf
-    if ! option ncurses; then
-        myconf="${myconf} --disable-curses --disable-panel"
-    fi
-    
-    econf ${myconf} || die "econf failed"
-
-}
-
-src_compile() {
-	emake dep || die "emake dep failed"
-	emake || die "emake failed"
-}
-
-src_install() {
-	emake -j1 DESTDIR="${IMAGE}" install
-	dodoc CHANGELOG README TODO docs/*
-	newinitd ${FILES}/kismet-initscript kismet
-	newconfd ${FILES}/kismet-confd kismet
-}

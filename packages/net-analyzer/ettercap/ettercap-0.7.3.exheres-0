@@ -1,7 +1,0 @@
-# Copyright (c) 2009 Jan Meier
-# Distributed under the terms of the GNU General Public License v2
-# Based in part upon 'ettercap-0.7.3-r3.ebuild' from Gentoo, which is:
-#     Copyright 1999-2009 Gentoo Foundation
-
-PLATFORMS="~x86"
-

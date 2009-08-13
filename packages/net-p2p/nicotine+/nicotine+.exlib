@@ -13,3 +13,7 @@ DEPENDENCIES="
 	gnome-bindings/pygtk
 "
 
+src_install() {
+	distutils_src_install
+	dosym nicotine.py /usr/bin/nicotine
+}

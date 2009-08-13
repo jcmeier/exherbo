@@ -1,0 +1,14 @@
+# Copyright (c) 2009 Jan Meier
+# Distributed under the terms of the GNU General Public License v2
+require distutils
+
+SUMMARY="Mutagen is a Python module to handle audio metadata."
+HOMEPAGE="http://code.google.com/p/mutagen/"
+DOWNLOADS="http://mutagen.googlecode.com/files/mutagen-${PV}.tar.gz"
+LICENCES="GPLv2"
+SLOT="0"
+DEPENDENCIES="
+    dev-python/setuptools
+    dev-lang/python
+"
+

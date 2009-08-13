@@ -11,6 +11,7 @@ DEPENDENCIES="
     dev-python/setuptools
     dev-lang/python
 	gnome-bindings/pygtk
+	media-libs/mutagen
 "
 
 src_install() {

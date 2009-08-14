@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 require sun-java-jdk
 
-DOWNLOADS=" platform:amd64 ( http://download.java.net/dlj/binaries/jdk-6u14-dlj-linux-amd64.bin -> ${PNV}.bin )
+DOWNLOADS=" platform:amd64? ( http://download.java.net/dlj/binaries/jdk-6u14-dlj-linux-amd64.bin -> ${PNV}.bin )
 			platform:x86? ( http://download.java.net/dlj/binaries/jdk-6u14-dlj-linux-i586.bin -> ${PNV}.bin )"
 LICENCES="SUN"
 SLOT="1.6"

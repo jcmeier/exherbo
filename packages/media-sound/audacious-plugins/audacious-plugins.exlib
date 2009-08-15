@@ -4,7 +4,7 @@
 SUMMARY="Plugins for the Audacious music player"
 HOMEPAGE="http://www.audacious-media-player.org/"
 DOWNLOADS="http://distfiles.atheme.org/${PNV}.tgz"
-LICENCES="GPLv2"
+LICENCES="GPL-2"
 MYOPTIONS="mp3"
 DEPENDENCIES="
 	media-sound/audacious[=${PV}]

@@ -5,7 +5,7 @@ require distutils
 SUMMARY="Nicotine is a SoulSeek client written in Python, based on the PySoulSeek project by Alexander Kanavin."
 HOMEPAGE="http://nicotine-plus.sf.net/"
 DOWNLOADS="http://www.nicotine-plus.org/files/nicotine+-${PV}.tar.bz2"
-LICENCES="GPLv3"
+LICENCES="GPL-3"
 SLOT="0"
 DEPENDENCIES="
     dev-python/setuptools

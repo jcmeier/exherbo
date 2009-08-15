@@ -4,7 +4,7 @@
 SUMMARY="libnet is a API allowing the application programmer to construct and inject network packets"
 HOMEPAGE="http://www.packetfactory.net/libnet/"
 DOWNLOADS="http://www.packetfactory.net/libnet/dist/libnet.tar.gz -> libnet-1.1.2.1.tar.gz"
-LICENCES="GPLv2"
+LICENCES="GPL-2"
 DEPENDENCIES="
 	sys-devel/autoconf
 "

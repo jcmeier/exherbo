@@ -4,7 +4,7 @@
 SUMMARY="Audacious is an advanced audio player"
 HOMEPAGE="http://www.audacious-media-player.org/"
 DOWNLOADS="http://distfiles.atheme.org/${PNV}.tgz"
-LICENCES="GPLv2"
+LICENCES="GPL-2"
 MYOPTIONS="dbus"
 DEPENDENCIES="
 	dbus? ( dev-libs/dbus-glib[>=0.80] )

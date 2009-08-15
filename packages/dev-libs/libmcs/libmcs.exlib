@@ -4,7 +4,7 @@
 SUMMARY="Abstracts the storage of configuration settings away from applications."
 HOMEPAGE="http://www.atheme.org/"
 DOWNLOADS="http://distfiles.atheme.org/${PNV}.tgz"
-LICENCES="GPLv2"
+LICENCES="GPL-2"
 DEPENDENCIES="
 	dev-libs/libmowgli[>=0.7.0]
 "

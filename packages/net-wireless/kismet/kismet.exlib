@@ -5,7 +5,7 @@
 
 SUMMARY="Kismet wireless sniffer"
 HOMEPAGE="http://www.kismetwireless.net"
-LICENCES="GPLv2"
+LICENCES="GPL-2"
 MYOPTIONS="ncurses"
 DEPENDENCIES="
 	net-wireless/wireless_tools

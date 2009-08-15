@@ -4,7 +4,7 @@ require distutils
 
 SUMMARY="MySQL module for Python"
 HOMEPAGE="http://mysql-python.sf.net/"
-DOWNLOADS="http://kent.dl.sourceforge.net/sourceforge/mysql-python/MySQL-python-${PV}.tar.gz"
+DOWNLOADS="mirror://sourceforge/mysql-python/MySQL-python-${PV}.tar.gz"
 LICENCES="PSF"
 SLOT="0"
 DEPENDENCIES="

@@ -9,9 +9,9 @@ LICENCES="GPLv3"
 SLOT="0"
 DEPENDENCIES="
     dev-python/setuptools
+	dev-python/mutagen
     dev-lang/python
 	gnome-bindings/pygtk
-	media-libs/mutagen
 "
 
 src_install() {

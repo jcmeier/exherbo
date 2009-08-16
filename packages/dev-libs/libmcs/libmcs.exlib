@@ -9,6 +9,4 @@ DEPENDENCIES="
 	dev-libs/libmowgli[>=0.7.0]
 "
 
-src_configure() {
-	econf --disable-kconfig
-}
+DEFAULT_SRC_CONFIGURE="--disable-kconfig"

@@ -19,13 +19,13 @@ src_configure() {
         myconf="${myconf} --disable-curses --disable-panel"
     fi
     
-    econf ${myconf} || die "econf failed"
+    econf ${myconf}
 
 }
 
 src_compile() {
-	emake dep || die "emake dep failed"
-	emake || die "emake failed"
+	emake dep 
+    emake
 }
 
 src_install() {

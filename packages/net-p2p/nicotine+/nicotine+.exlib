@@ -9,12 +9,12 @@ LICENCES="GPL-3"
 SLOT="0"
 DEPENDENCIES="
     dev-python/setuptools
-	dev-python/mutagen
+    dev-python/mutagen
     dev-lang/python
-	gnome-bindings/pygtk
+    gnome-bindings/pygtk
 "
 
 src_install() {
-	distutils_src_install
-	dosym nicotine.py /usr/bin/nicotine
+    distutils_src_install
+    dosym nicotine.py /usr/bin/nicotine
 }

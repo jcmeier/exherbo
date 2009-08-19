@@ -8,28 +8,27 @@ HOMEPAGE="http://www.kismetwireless.net"
 LICENCES="GPL-2"
 MYOPTIONS="ncurses"
 DEPENDENCIES="
-	net-wireless/wireless_tools
-	dev-libs/libpcap
-	ncurses? ( sys-libs/ncurses ) 
+    net-wireless/wireless_tools
+    dev-libs/libpcap
+    ncurses? ( sys-libs/ncurses ) 
 "
 
 src_configure() {
-	local myconf
+    local myconf
     if ! option ncurses; then
         myconf="${myconf} --disable-curses --disable-panel"
     fi
-    
     econf ${myconf}
 
 }
 
 src_compile() {
-	emake dep 
+    emake dep 
     emake
 }
 
 src_install() {
-	emake -j1 DESTDIR="${IMAGE}" install
-	newinitd ${FILES}/kismet-initscript kismet
-	newconfd ${FILES}/kismet-confd kismet
+    emake -j1 DESTDIR="${IMAGE}" install
+    newinitd ${FILES}/kismet-initscript kismet
+    newconfd ${FILES}/kismet-confd kismet
 }

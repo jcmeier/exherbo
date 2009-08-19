@@ -5,7 +5,7 @@ SUMMARY="SDK for the Java programming language"
 HOMEPAGE="http://java.sun.com"
 LICENCES="SUN"
 DEPENDENCIES="
-	sys-libs/glibc
+    sys-libs/glibc
 "
 IMAGE_PATH="${IMAGE}/opt/${PNV}/"
 src_unpack() {
@@ -15,7 +15,7 @@ src_unpack() {
 src_install() {
     mkdir -p ${IMAGE_PATH}
     cp -vR ${WORK}/* ${IMAGE_PATH}
-	keepdir /opt/${PNV}/jre/lib/applet
+    keepdir /opt/${PNV}/jre/lib/applet
     keepdir /opt/${PNV}/db/demo/programs/localcal/lib
     hereenvd 90java <<EOF
 PATH="/opt/${PNV}/bin"

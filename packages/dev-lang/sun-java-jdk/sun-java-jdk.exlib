@@ -4,21 +4,35 @@
 SUMMARY="SDK for the Java programming language"
 HOMEPAGE="http://java.sun.com"
 LICENCES="SUN"
+
+FILE_NAME="jdk-$(ever range 2 ${PV})u$(ever range 4 ${PV})-dlj-linux"
+DOWNLOADS=" platform:amd64? ( http://download.java.net/dlj/binaries/${FILE_NAME}-amd64.bin )
+            platform:x86? ( http://download.java.net/dlj/binaries/${FILE_NAME}-i586.bin )"
+
 DEPENDENCIES="
     sys-libs/glibc
 "
-IMAGE_PATH="${IMAGE}/opt/${PNV}/"
+MYOPTIONS="platform: amd64 x86"
+FOLDER_NAME="jdk$(ever range -3 ${PV})_$(ever range 4 ${PV})"
+WORK="${WORKBASE}/${FOLDERNAME}"
+
 src_unpack() {
-    sh ${FETCHEDDIR}/${PNV}.bin --accept-license --unpack
+    if option platform:x86; then
+        sh ${FETCHEDDIR}/${FILE_NAME}-i586.bin --accept-license --unpack
+    fi;
+
+    if option platform:amd64; then
+        sh ${FETCHEDDIR}/${FILE_NAME}-amd64.bin --accept-license --unpack;
+    fi;
 }
 
 src_install() {
-    mkdir -p ${IMAGE_PATH}
-    cp -vR ${WORK}/* ${IMAGE_PATH}
-    keepdir /opt/${PNV}/jre/lib/applet
-    keepdir /opt/${PNV}/db/demo/programs/localcal/lib
+    mkdir -p ${IMAGE}/opt/
+    cp -vR ${WORK}/${FOLDER_NAME} ${IMAGE}/opt/
+    keepdir /opt/${FOLDER_NAME}/jre/lib/applet
+    keepdir /opt/${FOLDER_NAME}/db/demo/programs/localcal/lib
     hereenvd 90java <<EOF
-PATH="/opt/${PNV}/bin"
+PATH="/opt/${FOLDER_NAME}/bin"
 EOF
 
 }

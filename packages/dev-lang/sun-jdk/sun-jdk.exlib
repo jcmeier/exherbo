@@ -18,17 +18,17 @@ WORK="${WORKBASE}/${FOLDERNAME}"
 
 src_unpack() {
     if option platform:x86; then
-        sh ${FETCHEDDIR}/${FILE_NAME}-i586.bin --accept-license --unpack
+        sh ${FETCHEDDIR}/${FILE_NAME}-i586.bin --accept-license --unpack || die "Could not unpack"
     fi;
 
     if option platform:amd64; then
-        sh ${FETCHEDDIR}/${FILE_NAME}-amd64.bin --accept-license --unpack;
+        sh ${FETCHEDDIR}/${FILE_NAME}-amd64.bin --accept-license --unpack || die "Could not unpack"
     fi;
 }
 
 src_install() {
-    mkdir -p ${IMAGE}/opt/
-    cp -vR ${WORK}/${FOLDER_NAME} ${IMAGE}/opt/
+    mkdir -p ${IMAGE}/opt/ || die "Could not create directory"
+    cp -vR ${WORK}/${FOLDER_NAME} ${IMAGE}/opt/ || die "could not copy files"
     keepdir /opt/${FOLDER_NAME}/jre/lib/applet
     keepdir /opt/${FOLDER_NAME}/db/demo/programs/localcal/lib
     hereenvd 90java <<EOF

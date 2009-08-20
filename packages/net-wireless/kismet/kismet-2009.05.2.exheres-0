@@ -1,7 +1,0 @@
-# Copyright (c) 2009 Jan Meier
-require kismet
-
-PLATFORMS="~x86"
-SLOT="0"
-DOWNLOADS="http://kismetwireless.net/code/kismet-2009-05-RC2.tar.gz -> kismet-2005.05.2.tar.gz"
-WORK="${WORKBASE}/kismet-2009-05-RC2"

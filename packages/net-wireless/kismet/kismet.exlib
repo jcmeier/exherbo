@@ -7,12 +7,15 @@ SUMMARY="Kismet wireless sniffer"
 HOMEPAGE="http://www.kismetwireless.net"
 LICENCES="GPL-2"
 MYOPTIONS="ncurses"
+VERSION="$(ever range 1 ${PV})-$(ever range 2 ${PV})-R$(ever range 3 ${PV})"
+DOWNLOADS="http://www.kismetwireless.net/code/kismet-${VERSION}.tar.gz"
+
 DEPENDENCIES="
     net-wireless/wireless_tools
     dev-libs/libpcap
     ncurses? ( sys-libs/ncurses ) 
 "
-
+WORK="${WORKBASE}/kismet-${VERSION}"
 src_configure() {
     local myconf
     if ! option ncurses; then
@@ -27,8 +30,3 @@ src_compile() {
     emake
 }
 
-src_install() {
-    emake -j1 DESTDIR="${IMAGE}" install
-    newinitd ${FILES}/kismet-initscript kismet
-    newconfd ${FILES}/kismet-confd kismet
-}

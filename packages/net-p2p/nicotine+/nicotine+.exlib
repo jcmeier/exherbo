@@ -1,5 +1,6 @@
 # Copyright (c) 2009 Jan Meier
 # Distributed under the terms of the GNU General Public License v2
+
 require distutils
 
 SUMMARY="Nicotine is a SoulSeek client written in Python, based on the PySoulSeek project by Alexander Kanavin."

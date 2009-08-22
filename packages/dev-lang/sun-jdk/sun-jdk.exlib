@@ -9,9 +9,6 @@ FILE_NAME="jdk-$(ever range 2 ${PV})u$(ever range 4 ${PV})-dlj-linux"
 DOWNLOADS=" platform:amd64? ( http://download.java.net/dlj/binaries/${FILE_NAME}-amd64.bin )
             platform:x86? ( http://download.java.net/dlj/binaries/${FILE_NAME}-i586.bin )"
 
-DEPENDENCIES="
-    sys-libs/glibc
-"
 MYOPTIONS="platform: amd64 x86"
 FOLDER_NAME="jdk$(ever range -3 ${PV})_$(ever range 4 ${PV})"
 WORK="${WORKBASE}/${FOLDERNAME}"

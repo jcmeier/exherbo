@@ -4,7 +4,7 @@ require distutils
 
 SUMMARY="Psyco is a Python extension module which can massively speed up the execution of any Python code."
 HOMEPAGE="http://psyco.sourceforge.net/"
-DOWNLOADS="http://ovh.dl.sourceforge.net/sourceforge/psyco/${PNV}-src.tar.gz"
+DOWNLOADS="mirror://sourceforge/psyco/${PNV}-src.tar.gz"
 LICENCES="BSD"
 SLOT="0"
 DEPENDENCIES="

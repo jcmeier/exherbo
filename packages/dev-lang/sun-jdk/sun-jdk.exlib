@@ -10,8 +10,8 @@ DOWNLOADS=" platform:amd64? ( http://download.java.net/dlj/binaries/${FILE_NAME}
             platform:x86? ( http://download.java.net/dlj/binaries/${FILE_NAME}-i586.bin )"
 
 MYOPTIONS="platform: amd64 x86"
-FOLDER_NAME="jdk$(ever range -3 ${PV})_$(ever range 4 ${PV})"
-WORK="${WORKBASE}/${FOLDERNAME}"
+DIRECTORY_NAME="jdk$(ever range -3 ${PV})_$(ever range 4 ${PV})"
+WORK="${WORKBASE}/${DIRECTORY_NAME}"
 
 src_unpack() {
     if option platform:x86; then
@@ -25,11 +25,11 @@ src_unpack() {
 
 src_install() {
     mkdir -p ${IMAGE}/opt/ || die "Could not create directory"
-    cp -vR ${WORK}/${FOLDER_NAME} ${IMAGE}/opt/ || die "could not copy files"
-    keepdir /opt/${FOLDER_NAME}/jre/lib/applet
-    keepdir /opt/${FOLDER_NAME}/db/demo/programs/localcal/lib
+    cp -vR ${WORKBASE}/${DIRECTORY_NAME} ${IMAGE}/opt/ || die "could not copy files"
+    keepdir /opt/${DIRECTORY_NAME}/jre/lib/applet
+    keepdir /opt/${DIRECTORY_NAME}/db/demo/programs/localcal/lib
     hereenvd 90java <<EOF
-PATH="/opt/${FOLDER_NAME}/bin"
+PATH="/opt/${DIRECTORY_NAME}/bin"
 EOF
 
 }

@@ -3,13 +3,18 @@
 
 require distutils
 
+MY_PNV=${PNV^}
 SUMMARY="The Web framework for perfectionists with deadlines"
 HOMEPAGE="http://www.djangoproject.com"
-DOWNLOADS="http://www.djangoproject.com/download/${PV}/tarball/ -> django-${PV}.tar.gz"
+DOWNLOADS="http://media.djangoproject.com/releases/${PV}/${MY_PNV}.tar.gz"
+
 LICENCES="BSD"
 SLOT="0"
+
 DEPENDENCIES="
     dev-python/setuptools
     dev-python/mysql-python
 "
-WORK="${WORKBASE}/Django-${PV}"
+
+WORK=${WORKBASE}/${MY_PNV}
+

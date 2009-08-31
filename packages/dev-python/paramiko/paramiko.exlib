@@ -10,5 +10,5 @@ LICENCES="BSD"
 SLOT="0"
 DEPENDENCIES="
     dev-python/setuptools
-	python-crypto/pycrypto
+    python-crypto/pycrypto
 "

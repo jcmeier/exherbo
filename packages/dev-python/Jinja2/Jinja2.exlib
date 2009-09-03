@@ -1,0 +1,17 @@
+# Copyright (c) 2009 Jan Meier
+# Distributed under the terms of the GNU General Public License v2
+
+require distutils
+
+SUMMARY="Jinja2 is a template engine written in pure Python"
+HOMEPAGE="http://jinja.pocoo.org/2/"
+DOWNLOADS="http://pypi.python.org/packages/source/J/Jinja2/${PNV}.tar.gz"
+
+LICENCES="BSD"
+SLOT="0"
+
+DEPENDENCIES="
+    dev-python/setuptools
+    dev-python/mysql-python
+"
+

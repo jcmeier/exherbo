@@ -31,15 +31,14 @@ DOWNLOADS="http://de-mirror.org/distro/gentoo/distfiles/${PNV}.tar.bz2
 "
 
 src_install() {
-    sed -e "s:VERSION_DMAP:$VERSION_DMAP:" \
+    sed -i -e "s:VERSION_DMAP:$VERSION_DMAP:" \
         -e "s:VERSION_DMRAID:$VERSION_DMRAID:" \
         -e "s:VERSION_E2FSPROGS:$VERSION_E2FSPROGS:" \
         -e "s:VERSION_LVM:$VERSION_LVM:" \
         -e "s:VERSION_BUSYBOX:$VERSION_BUSYBOX:" \
-        "${WORK}"/genkernel.conf > "${TEMP}"/genkernel.conf \
-        || die "Could not adjust versions"
+        genkernel.conf || die "Could not adjust versions"
     insinto /etc
-    doins "${TEMP}"/genkernel.conf
+    doins genkernel.conf
 
     doman genkernel.8 
     dodoc AUTHORS ChangeLog README TODO

@@ -1,0 +1,62 @@
+# Copyright (c) 2009 Jan Meier
+# Distributed under the terms of the GNU General Public License v2
+# Based in part upon 'genkernel-3.4.10-r2.ebuild' from Gentoo, which is:
+#     Copyright 1999-2007 Gentoo Foundation
+
+SUMMARY="Gentoo automatic kernel building scripts"
+HOMEPAGE="http://www.gentoo.org/"
+LICENCES="GPL-2"
+PLATFORMS="~x86"
+SLOT="0"
+
+VERSION_BUSYBOX='1.7.4'
+VERSION_DMAP='1.02.22'
+VERSION_DMRAID='1.0.0.rc14'
+VERSION_E2FSPROGS='1.39'
+VERSION_LVM='2.02.28'
+
+RH_HOME="ftp://sources.redhat.com/pub"
+DM_HOME="http://people.redhat.com/~heinzm/sw/dmraid/src"
+BB_HOME="http://www.busybox.net/downloads"
+
+DOWNLOADS="http://de-mirror.org/distro/gentoo/distfiles/${PNV}.tar.bz2
+    ${DM_HOME}/dmraid-${VERSION_DMRAID}.tar.bz2
+    ${DM_HOME}/old/dmraid-${VERSION_DMRAID}.tar.bz2
+    ${RH_HOME}/lvm2/LVM2.${VERSION_LVM}.tgz
+    ${RH_HOME}/lvm2/old/LVM2.${VERSION_LVM}.tgz
+    ${RH_HOME}/dm/device-mapper.${VERSION_DMAP}.tgz
+    ${RH_HOME}/dm/old/device-mapper.${VERSION_DMAP}.tgz
+    ${BB_HOME}/busybox-${VERSION_BUSYBOX}.tar.bz2
+    mirror://sourceforge/e2fsprogs/e2fsprogs-${VERSION_E2FSPROGS}.tar.gz
+"
+
+src_install() {
+    sed -e "s:VERSION_DMAP:$VERSION_DMAP:" \
+        -e "s:VERSION_DMRAID:$VERSION_DMRAID:" \
+        -e "s:VERSION_E2FSPROGS:$VERSION_E2FSPROGS:" \
+        -e "s:VERSION_LVM:$VERSION_LVM:" \
+        -e "s:VERSION_BUSYBOX:$VERSION_BUSYBOX:" \
+        "${WORK}"/genkernel.conf > "${TEMP}"/genkernel.conf \
+        || die "Could not adjust versions"
+    insinto /etc
+    doins "${TEMP}"/genkernel.conf
+
+    doman genkernel.8 
+    dodoc AUTHORS ChangeLog README TODO
+
+    dobin genkernel
+
+    rm -f genkernel genkernel.8 AUTHORS ChangeLog README TODO genkernel.conf || die "rm failed!"
+
+    insinto /usr/share/genkernel
+    doins -r "${WORK}"/* 
+    mkdir -p "${IMAGE}"/var/cache/genkernel/src
+    cp -f \
+        "${FETCHEDDIR}"/dmraid-${VERSION_DMRAID}.tar.bz2 \
+        "${FETCHEDDIR}"/LVM2.${VERSION_LVM}.tgz \
+        "${FETCHEDDIR}"/device-mapper.${VERSION_DMAP}.tgz \
+        "${FETCHEDDIR}"/e2fsprogs-${VERSION_E2FSPROGS}.tar.gz \
+        "${FETCHEDDIR}"/busybox-${VERSION_BUSYBOX}.tar.bz2 \
+        "${IMAGE}"/var/cache/genkernel/src || die "Copying distfiles failed"
+}
+

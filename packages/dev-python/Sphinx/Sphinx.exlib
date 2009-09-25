@@ -15,6 +15,8 @@ DEPENDENCIES="
 	    dev-python/docutils
         dev-python/nose
 		dev-python/Jinja2
+    run:
+        dev-python/Pygments
 "
 src_test() {
     emake test

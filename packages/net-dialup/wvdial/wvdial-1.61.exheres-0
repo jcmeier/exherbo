@@ -1,0 +1,23 @@
+# Copyright (c) 2009 Jan Meier
+# Distributed under the terms of the GNU General Public License v2
+
+SUMMARY="WvDial is a program that makes it easy to connect your Linux workstation to the Internet."
+HOMEPAGE="http://alumnit.ca/wiki/index.php?page=WvDial"
+LICENCES="LGPL-3"
+PLATFORMS="~x86"
+SLOT="0"
+DOWNLOADS="http://wvstreams.googlecode.com/files/${PNV}.tar.gz"
+DEPENDENCIES="
+    net-dialup/ppp
+    net-libs/wvstreams[>=4.6]
+"
+DEFAULT_SRC_COMPILE_PARAMS=( "-j1" )
+
+src_prepare() {
+    sed -i -e 's/prefix=\/usr\/local/prefix=${IMAGE}\/usr\//' \
+        config.defaults.mk Makefile.in || die "Updating install prefix failed!"
+
+    sed -i -e 's/PPPDIR=\/etc\/ppp\/peers/PPPDIR=${IMAGE}\/etc\/ppp\/peers/' \
+        config.defaults.mk Makefile.in || die "Updating install prefix failed!"
+}
+

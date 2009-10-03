@@ -1,0 +1,14 @@
+# Copyright (c) 2009 Jan Meier
+# Distributed under the terms of the GNU General Public License v2
+
+SUMMARY="PPPoE client for Linux to connect to PPPoE service providers."
+HOMEPAGE="http://www.roaringpenguin.com/products/pppoe"
+LICENCES="GPL-2"
+PLATFORMS="~x86"
+SLOT="0"
+DOWNLOADS="http://www.roaringpenguin.com/files/download/${PNV}.tar.gz"
+DEPENDENCIES="
+    net-dialup/ppp
+"
+WORK="${WORK}/src"
+

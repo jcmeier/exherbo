@@ -5,4 +5,3 @@ require django
 
 PLATFORMS="~x86"
 
-WORK="${WORKBASE}/Django-${PV}-final"

@@ -1,0 +1,11 @@
+# Copyright (c) 2009 Jan Meier
+# Distributed under the terms of the GNU General Public License v2
+
+SUMMARY="The router advertisement daemon (radvd) is run by Linux systems acting as IPv6 routers."
+HOMEPAGE="http://www.litech.org/radvd/"
+DOWNLOADS="http://www.litech.org/radvd/dist/${PNV}.tar.gz"
+SLOT="0"
+LICENCES="GPL-2"
+PLATFORMS="~x86"
+DEFAULT_SRC_CONFIGURE_PARAMS="--hates=docdir"
+

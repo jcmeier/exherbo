@@ -35,5 +35,7 @@ src_install() {
     hereenvd 90java <<EOF
 MANPATH="${INSTALL_PATH}/man"
 PATH="${INSTALL_PATH}/bin"
+MOZ_PLUGIN_PATH="${INSTALL_PATH}/jre/plugin/i386/ns7/"
+COLON_SEPARATED="MOZ_PLUGIN_PATH"
 EOF
 }

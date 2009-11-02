@@ -26,7 +26,7 @@ src_unpack() {
 src_install() {
     INSTALL_PATH=/opt/${DIRECTORY_NAME}
     dodir ${INSTALL_PATH}
-    cp -vR "${WORK}"/* "${IMAGE}"/${INSTALL_PATH} || die "could not copy files"
+    edo cp -vR "${WORK}"/* "${IMAGE}"/${INSTALL_PATH}
 
     keepdir "${INSTALL_PATH}/jre/lib/applet"
     keepdir "${INSTALL_PATH}/db/demo/programs/localcal/lib"

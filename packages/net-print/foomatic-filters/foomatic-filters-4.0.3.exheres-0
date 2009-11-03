@@ -1,0 +1,14 @@
+# Copyright (c) 2009 Jan Meier
+# Distributed under the terms of the GNU General Public License v2
+
+SUMMARY="The universal print filter 'foomatic-rip', used by spoolers to convert PostScript job data into the printer's native format as described by a printer/driver-specific PPD file."
+HOMEPAGE="http://www.linuxfoundation.org/collaborate/workgroups/openprinting/database/foomatic"
+DOWNLOADS="http://www.openprinting.org/download/foomatic/${PNV}.tar.gz"
+SLOT="0"
+LICENCES="GPL-2"
+PLATFORMS="~x86"
+
+src_install() {
+    keepdir /etc/foomatic/direct
+    default_src_install
+}

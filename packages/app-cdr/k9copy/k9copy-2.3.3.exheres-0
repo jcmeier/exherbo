@@ -1,0 +1,32 @@
+# Copyright (c) 2009 Jan Meier
+# Distributed under the terms of the GNU General Public License v2
+
+require cmake
+
+SUMMARY="K9Copy is a small utility which allows copying DVD's on Linux."
+HOMEPAGE="http://k9copy.sf.net/"
+DOWNLOADS="mirror://sourceforge/${PN}/${PNV}-Source.tar.gz"
+DEPENDENCIES="
+    build+run:
+       media-libs/libdvdread
+       media-libs/libmpeg2
+       media-libs/xine-lib
+       media/ffmpeg
+       x11-libs/qt
+    run:
+        media/dvdauthor
+        media/mplayer
+"
+SLOT="0"
+LICENCES="GPL-2"
+PLATFORMS="~x86"
+WORK="${WORKBASE}/${PNV}-Source/"
+
+src_compile() {
+    cmake_src_compile
+}
+
+src_install() {
+    cmake_src_install
+}
+

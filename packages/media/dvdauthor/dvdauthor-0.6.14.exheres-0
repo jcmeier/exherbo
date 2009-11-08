@@ -1,0 +1,10 @@
+# Copyright (c) 2009 Jan Meier
+# Distributed under the terms of the GNU General Public License v2
+
+SUMMARY="A simple set of tools to help you author a DVD."
+HOMEPAGE="http://dvdauthor.sf.net"
+DOWNLOADS="mirror://sourceforge/${PN}/${PNV}.tar.gz"
+SLOT="0"
+LICENCES="GPL-2"
+PLATFORMS="~x86"
+

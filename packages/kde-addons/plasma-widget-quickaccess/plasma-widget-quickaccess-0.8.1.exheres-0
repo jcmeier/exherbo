@@ -1,0 +1,15 @@
+# Copyright (c) 2009 Jan Meier
+# Distributed under the terms of the GNU General Public License v2
+
+require cmake
+
+SUMMARY="A small applet designed for the panel to have quick access to the most used folders"
+HOMEPAGE="http://kde-look.org/content/show.php/QuickAccess+%28maintenance+fork%29?content=101968"
+DOWNLOADS="http://kde-look.org/CONTENT/content-files/101968-plasma-widget-quickaccess_0.8.1.orig.tar.gz -> plasma-widget-quickaccess_0.8.1.tar.gz"
+SLOT="0"
+LICENCES="GPL-2"
+PLATFORMS="~x86"
+DEPENDENCIES="
+    kde/kdebase-workspace   
+"
+

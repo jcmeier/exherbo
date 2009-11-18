@@ -3,7 +3,7 @@
 
 require cmake
 
-SUMMARY="Daisy" is a simple application launcher for Plasma.
+SUMMARY="Daisy is a simple application launcher for Plasma"
 HOMEPAGE="http://daisyplasma.freehostia.com"
 DOWNLOADS="http://daisyplasma.freehostia.com/downloads/${PNV}.tar.gz"
 SLOT="0"

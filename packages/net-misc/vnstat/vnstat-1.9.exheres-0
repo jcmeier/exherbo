@@ -1,0 +1,20 @@
+# Copyright (c) 2009 Jan Meier
+# Distributed under the terms of the GNU General Public License v2
+
+SUMMARY="vnStat is a console-based network traffic monitor for Linux."
+HOMEPAGE="http://humdi.net/vnstat/"
+DOWNLOADS="http://humdi.net/vnstat/${PNV}.tar.gz"
+SLOT="0"
+LICENCES="GPL-2"
+PLATFORMS="~x86"
+
+src_prepare() {
+	edo sed -i -s 's/install -s/install /g' Makefile
+	default
+}
+
+src_install() {
+	keepdir /var/lib/vnstat
+	default
+}
+

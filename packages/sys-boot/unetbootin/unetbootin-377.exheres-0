@@ -1,0 +1,28 @@
+# Copyright (c) 2009 Jan Meier
+# Distributed under the terms of the GNU General Public License v2
+
+SUMMARY="UNetbootin allows you to create bootable Live USB drives for a variety of Linux distributions, without requiring you to burn a CD."
+HOMEPAGE="http://unetbootin.sourceforge.net/"
+DOWNLOADS="mirror://sourceforge/unetbootin/${PN}-source-${PV}.tar.gz"
+SLOT="0"
+LICENCES="GPL-2"
+PLATFORMS="~x86"
+DEPENDENCIES="
+    x11-libs/qt
+    run:
+        app-arch/p7zip
+        sys-fs/mtools
+"
+WORK="${WORKBASE}"
+
+src_compile() {
+    lupdate unetbootin.pro
+    lrelease unetbootin.pro
+    qmake-qt4
+    default
+}
+
+src_install() {
+    dobin unetbootin
+}
+

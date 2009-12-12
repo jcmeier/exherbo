@@ -34,8 +34,10 @@ src_install() {
     keepdir "${INSTALL_PATH}/db/demo/programs/localcal/lib"
     
     dodir /usr/bin
-    dosym "${INSTALL_PATH}/bin/java" /usr/bin/java
-    dosym "${INSTALL_PATH}/bin/javac" /usr/bin/javac
+    for i in java javac javaws
+    do
+        dosym "${INSTALL_PATH}/bin/$i" "/usr/bin/$i"
+    done
 
     hereenvd 90sun-jdk <<EOF
 MANPATH="${INSTALL_PATH}/man"

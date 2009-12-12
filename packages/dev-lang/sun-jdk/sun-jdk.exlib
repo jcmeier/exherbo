@@ -4,7 +4,9 @@
 SUMMARY="SDK for the Java programming language"
 HOMEPAGE="http://java.sun.com"
 LICENCES="SUN"
-
+DEPENDENCIES="
+    dev-java/java-env
+"
 FILE_NAME="jdk-$(ever range 2)u$(ever range 4)-dlj-linux"
 DOWNLOADS=" platform:amd64? ( http://download.java.net/dlj/binaries/${FILE_NAME}-amd64.bin )
             platform:x86? ( http://download.java.net/dlj/binaries/${FILE_NAME}-i586.bin )"
@@ -27,15 +29,18 @@ src_install() {
     INSTALL_PATH=/opt/${DIRECTORY_NAME}
     dodir ${INSTALL_PATH}
     edo cp -vR "${WORK}"/* "${IMAGE}"/${INSTALL_PATH}
-
+    
     keepdir "${INSTALL_PATH}/jre/lib/applet"
     keepdir "${INSTALL_PATH}/db/demo/programs/localcal/lib"
+    
+    dodir /usr/bin
+    dosym "${INSTALL_PATH}/bin/java" /usr/bin/java
+    dosym "${INSTALL_PATH}/bin/javac" /usr/bin/javac
 
-    # TODO: nsplugin? java plugin for mozilla firefox
-    hereenvd 90java <<EOF
+    hereenvd 90sun-jdk <<EOF
 MANPATH="${INSTALL_PATH}/man"
-PATH="${INSTALL_PATH}/bin"
 MOZ_PLUGIN_PATH="${INSTALL_PATH}/jre/plugin/i386/ns7/"
 COLON_SEPARATED="MOZ_PLUGIN_PATH"
 EOF
+
 }

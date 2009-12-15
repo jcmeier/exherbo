@@ -11,6 +11,7 @@ DEPENDENCIES="
     net-wireless/wireless_tools
     dev-libs/libpcap
     sys-libs/ncurses
+    net-libs/libnl
 "
 WORK="${WORKBASE}/kismet-${VERSION}"
 

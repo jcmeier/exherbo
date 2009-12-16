@@ -1,0 +1,20 @@
+# Copyright (c) 2009 Jan Meier
+# Distributed under the terms of the GNU General Public License v2
+
+require cmake sourceforge [ suffix="gz" ]
+
+SUMMARY="KMess, the Live Messenger alternative for Linux"
+HOMEPAGE="http://www.kmess.org/"
+LICENCES="GPL-2"
+SLOT="0"
+PLATFORMS="~x86"
+
+# TODO: xscreensaver option - x11-libs/libXScrnSaver 
+DEPENDENCIES="
+    build+run:
+        kde/kdelibs
+        app-crypt/qca-ossl
+        dev-libs/libxml2
+        dev-libs/isf-qt
+"
+

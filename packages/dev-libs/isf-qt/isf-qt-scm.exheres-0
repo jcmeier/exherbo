@@ -1,0 +1,12 @@
+# Copyright (c) 2009 Jan Meier
+# Distributed under the terms of the GNU General Public License v2
+
+SCM_REPOSITORY="http://kmess.svn.sourceforge.net/svnroot/kmess/trunk/kmess/contrib/isf-qt/"
+SCM_SVN_RAW_URI="true"
+require cmake scm-svn
+SUMMARY="SF-Qt is a library, which is capable of reading and writing the ISF format."
+HOMEPAGE="http://kmess.org/projects/isf-qt/"
+SLOT="0"
+LICENCES="GPL-2"
+PLATFORMS="~x86"
+

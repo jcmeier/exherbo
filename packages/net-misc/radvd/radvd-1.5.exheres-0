@@ -6,6 +6,6 @@ HOMEPAGE="http://www.litech.org/radvd/"
 DOWNLOADS="http://www.litech.org/radvd/dist/${PNV}.tar.gz"
 SLOT="0"
 LICENCES="GPL-2"
-PLATFORMS="~x86"
+PLATFORMS="~x86 ~amd64"
 DEFAULT_SRC_CONFIGURE_PARAMS="--hates=docdir"
 

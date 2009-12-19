@@ -8,7 +8,7 @@ SLOT="0"
 LICENCES="GPL-2"
 PLATFORMS="~x86"
 DEPENDENCIES="
-    x11-libs/qt
+    x11-libs/qt:4
     run:
         app-arch/p7zip
         sys-fs/mtools

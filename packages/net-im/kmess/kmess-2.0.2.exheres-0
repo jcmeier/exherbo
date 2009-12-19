@@ -1,7 +1,7 @@
 # Copyright (c) 2009 Jan Meier
 # Distributed under the terms of the GNU General Public License v2
 
-require cmake sourceforge [ suffix="gz" ]
+require cmake sourceforge [ suffix="tar.gz" ]
 
 SUMMARY="KMess, the Live Messenger alternative for Linux"
 HOMEPAGE="http://www.kmess.org/"

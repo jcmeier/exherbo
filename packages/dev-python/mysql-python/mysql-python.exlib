@@ -1,7 +1,7 @@
 # Copyright (c) 2009 Jan Meier
 # Distributed under the terms of the GNU General Public License v2
 
-require distutils sourceforge [ pnv="MySQL-python-${PV}" suffix="gz" ]
+require distutils sourceforge [ pnv="MySQL-python-${PV}" suffix="tar.gz" ]
 
 SUMMARY="MySQL module for Python"
 LICENCES="PSF"
@@ -10,3 +10,4 @@ DEPENDENCIES="
     dev-python/setuptools
 "
 WORK="${WORKBASE}/MySQL-python-${PV}"
+

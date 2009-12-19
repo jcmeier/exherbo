@@ -1,0 +1,10 @@
+# Copyright 2009 Sterling X. Winter <replica@exherbo.org>
+# Distributed under the terms of the GNU General Public License v2
+
+SLOT="$(ever range 1-2)"
+require sun-jdk-bin
+
+PLATFORMS="~amd64"
+
+UPSTREAM_DOCUMENTATION="http://java.sun.com/javase/6/docs/api/ [[ lang = en ]]"
+

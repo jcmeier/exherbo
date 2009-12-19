@@ -1,0 +1,145 @@
+# Copyright 2009 Sterling X. Winter <replica@exherbo.org>
+# Distributed under the terms of the GNU General Public License v2
+
+# This currently doesn't handle :1.4, it's only for :1.5 and :1.6.
+
+require java-jdk [ use_versioned_java_home=${SLOT} ] multilib
+
+if [[ ${SLOT} == 1.5 ]] ; then
+    MY_PV="5.0u$(ever range 4)"
+else
+    MY_PV="$(ever range 2)u$(ever range 4)"
+fi
+
+MY_PN_AMD64="jdk-${MY_PV}-dlj-linux-amd64"
+MY_PN_X86="jdk-${MY_PV}-dlj-linux-i586"
+
+SUMMARY="Sun Java SE Development Kit"
+DESCRIPTION="
+Java Platform, Standard Edition (Java SE) lets you develop and deploy Java
+applications on desktops and servers, as well as today's demanding Embedded and
+Real-Time environments. The JRE provides the libraries, Java virtual machine,
+and other components necessary for you to run applets and applications written
+in the Java programming language. This runtime environment can be redistributed
+with applications to make them free-standing. The JDK includes the JRE plus
+command-line development tools such as compilers and debuggers that are
+necessary or useful for developing applets and applications.
+"
+HOMEPAGE="http://java.sun.com/javase/"
+DOWNLOADS="
+    platform:amd64? ( http://download.java.net/dlj/binaries/${MY_PN_AMD64}.bin )
+    platform:x86?   ( http://download.java.net/dlj/binaries/${MY_PN_X86}.bin   )
+"
+
+LICENCES="DLJ-1.1"
+MYOPTIONS="
+    X        [[ description = [ Enable runtime support for GUI toolkits and graphics APIs ] ]]
+    alsa     [[ description = [ Enable runtime support for sound                          ] ]]
+    examples [[ description = [ Install Java demos and samples                            ] ]]
+    jce      [[ description = [
+        Install Java Cryptography Extension to enable unlimited strength crypto policies
+    ] ]]
+    nsplugin [[ description = [ Install Java browser plugin(s)                            ] ]]
+    odbc     [[ description = [ Enable runtime JDBC support for native ODBC driver        ] ]]
+    print    [[ description = [ Enable runtime support for printing                       ] ]]
+    source   [[ description = [
+        Install src.zip, an archive of the class library source code useful in debugging
+    ] ]]
+    platform: amd64 x86
+"
+
+DEPENDENCIES="
+    build+run:
+        jce? ( dev-java/sun-jce:${SLOT} )
+    run:
+        X? (
+            dev-libs/libpthread-stubs
+            x11-libs/libICE
+            x11-libs/libSM
+            x11-libs/libX11
+            x11-libs/libXau
+            x11-libs/libXdmcp
+            x11-libs/libXext
+            x11-libs/libXi
+            x11-libs/libXp
+            x11-libs/libXt
+            x11-libs/libXtst
+            x11-libs/libxcb
+        )
+        alsa?  ( sys-sound/alsa-lib )
+        odbc?  ( dev-db/unixODBC    )
+        print? ( net-print/cups     ) [[ note = [ cups only needed for /usr/sbin/lpc ] ]]
+"
+
+BUGS_TO="replica@exherbo.org"
+
+WORK="${WORKBASE}"/jdk$(ever replace 3 _)
+
+src_unpack() {
+    edo sh "${FETCHEDDIR}/${ARCHIVES}" --accept-license --unpack
+}
+
+src_compile() {
+    # Class Data Sharing archives aren't created automatically for DLJ-licensed
+    # JDK bundles, so do it manually. CDS isn't supported at all for 64-bit.
+    # http://java.sun.com/javase/6/docs/technotes/guides/vm/class-data-sharing.html
+    if option platform:x86 ; then
+        if ever at_least 1.5 ${SLOT} ; then
+            einfo "Generating Class Data Sharing archive for the client VM"
+            edo nonfatal "${WORK}"/bin/java -client -Xshare:dump ||
+                ewarn "Unable to create CDS archive for client VM on this platform"
+        fi
+        if ever at_least 1.6 ${SLOT} ; then
+            einfo "Generating Class Data Sharing archive for the server VM"
+            edo nonfatal "${WORK}"/bin/java -server -Xshare:dump ||
+                ewarn "Unable to create CDS archive for server VM on this platform"
+        fi
+    fi
+}
+
+src_install() {
+    local java_home="/usr/$(get_libdir)/${PN}-${SLOT}"
+
+    dodir "${java_home}"
+
+    edo cp -a bin include jre lib man "${IMAGE}${java_home}"
+    keepdir "${java_home}"/jre/lib/applet
+
+    if option odbc ; then
+        edo cp -a db "${IMAGE}${java_home}"
+        keepdir "${java_home}"/db/demo/programs/localcal/lib
+    fi
+
+    insinto "${java_home}"
+    option examples && doins -r demo sample
+    option source && doins src.zip
+
+    if option jce ; then
+        local jce_dir="${java_home}"/jre/lib/security \
+              sun_jce_dir=/usr/$(get_libdir)/sun-jce-${SLOT}
+
+        # Move the default limited-strength policy files and replace them with
+        # symlinks to unlimited-strength versions from the sun-jce package.
+        dodir "${jce_dir}"/limited
+        edo pushd "${IMAGE}${jce_dir}"
+        edo mv US_export_policy.jar local_policy.jar limited/
+        edo popd
+        dosym "${sun_jce_dir}"/US_export_policy.jar "${jce_dir}"/US_export_policy.jar
+        dosym "${sun_jce_dir}"/local_policy.jar "${jce_dir}"/local_policy.jar
+    fi
+
+    if option nsplugin ; then
+        if option platform:x86 ; then
+            register_mozplugin "${java_home}"/jre/plugin/i386/ns7/libjavaplugin_oji.so plugin1
+            register_mozplugin "${java_home}"/jre/lib/i386/libnpjp2.so plugin2
+        elif option platform:amd64 ; then
+            register_mozplugin "${java_home}"/jre/lib/amd64/libnpjp2.so plugin2
+        fi
+    fi
+
+    dodoc *README*
+
+    linkify_redundant_jdk_bins
+    do_jdk_alternatives
+}
+

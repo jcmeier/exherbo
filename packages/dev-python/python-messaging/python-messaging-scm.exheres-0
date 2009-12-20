@@ -3,7 +3,7 @@
 SCM_REPOSITORY="git://github.com/pmarti/python-messaging.git"
 require distutils scm-git
 
-SUMMARY=""
+SUMMARY="A SMS encoder/decoder written 100% in Python."
 HOMEPAGE="http://github.com/pmarti/python-messaging"
 LICENCES="BSD"
 SLOT="0"

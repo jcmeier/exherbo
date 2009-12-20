@@ -4,7 +4,7 @@
 SLOT="$(ever range 1-2)"
 require sun-jdk-bin
 
-PLATFORMS="~amd64"
+PLATFORMS="~amd64 ~x86"
 
 UPSTREAM_DOCUMENTATION="http://java.sun.com/javase/6/docs/api/ [[ lang = en ]]"
 

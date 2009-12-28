@@ -1,0 +1,17 @@
+# Copyright (c) 2009 Jan Meier
+# Distributed under the terms of the GNU General Public License v2
+
+require gnome-2
+
+SUMMARY="gitg is a git repository viewer targeting gtk+/GNOME."
+HOMEPAGE="http://trac.novowork.com/gitg/"
+SLOT="0"
+LICENCES="GPL-2"
+PLATFORMS="~x86"
+DEPENDENCIES="
+    dev-libs/glib:2
+    dev-scm/git
+    gnome-desktop/gtksourceview:2
+    x11-libs/gtk+[>=2.12]
+"
+

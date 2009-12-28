@@ -1,0 +1,10 @@
+# Copyright (c) 2009 Jan Meier
+# Distributed under the terms of the GNU General Public License v2
+require sourceforge [ project="gkernel" suffix="tar.gz" ]
+
+SUMMARY=""
+SLOT="0"
+LICENCES="GPL-2"
+PLATFORMS="~x86"
+DEFAULT_SRC_CONFIGURE_PARAMS="--hates=docdir"
+

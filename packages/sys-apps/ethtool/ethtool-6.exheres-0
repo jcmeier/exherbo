@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 require sourceforge [ project="gkernel" suffix="tar.gz" ]
 
-SUMMARY=""
+SUMMARY="Tool for getting information from ethernet devices"
 SLOT="0"
 LICENCES="GPL-2"
 PLATFORMS="~x86"

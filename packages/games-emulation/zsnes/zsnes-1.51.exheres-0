@@ -1,7 +1,7 @@
 # Copyright (c) 2009 Jan Meier
 # Distributed under the terms of the GNU General Public License v2
 
-require sourceforge [ pnv="${PN}$(ever delete 1 ${PV})src" ]
+require sourceforge [ pnv="${PN}$(ever delete 1)src" ]
 
 SUMMARY="ZSNES is a Super Nintendo emulator"
 HOMEPAGE="http://www.zsnes.com"
@@ -28,7 +28,7 @@ DEPENDENCIES="
             sys-devel/gdb
     )
 "
-WORK="${WORKBASE}/zsnes_$(ever replace_all _ ${PV})/src"
+WORK="${WORKBASE}/zsnes_$(ever replace_all _)/src"
 DEFAULT_SRC_PREPARE_PATCHES=( "${FILES}/gcc43.patch" )
 DEFAULT_SRC_CONFIGURE_OPTION_ENABLES=( "opengl" "debugger" "ao libao" "debug" )
 # WTF is jma?

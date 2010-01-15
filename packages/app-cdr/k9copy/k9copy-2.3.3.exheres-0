@@ -17,7 +17,7 @@ DEPENDENCIES="
        media-libs/libmpeg2
        media-libs/xine-lib
        media/ffmpeg
-       x11-libs/qt
+       x11-libs/qt:4[X]
     run:
         media/dvdauthor
         media/mplayer

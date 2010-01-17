@@ -3,7 +3,7 @@
 
 # This currently doesn't handle :1.4, it's only for :1.5 and :1.6.
 
-require java-jdk [ use_versioned_java_home=${SLOT} ] multilib
+require java [ virtual_jdk_and_jre_deps=false ] java-jdk [ use_versioned_java_home=${SLOT} ] multilib
 
 if [[ ${SLOT} == 1.5 ]] ; then
     MY_PV="5.0u$(ever range 4)"

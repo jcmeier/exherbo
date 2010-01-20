@@ -1,0 +1,14 @@
+# Copyright (c) 2009 Jan Meier
+# Distributed under the terms of the GNU General Public License v2
+require sourceforge [ suffix="tar.gz" ]
+
+SUMMARY="Vamps is a tool to help backing up DVDs"
+DESCRIPTION="Vamps is a tool to help backing up DVDs: Vamps evaporates DVD compliant MPEG2 program streams by selectively copying audio and subpicture tracks and by re-quantizing the video stream. Shrink ratio may be based on video only or on the full PS."
+SLOT="0"
+LICENCES="GPL-2"
+PLATFORMS="~x86"
+
+src_install() {
+    PREFIX="${IMAGE}/usr" emake install
+}
+

@@ -8,16 +8,7 @@
  using namespace std;
  
  #include <errno.h>
-@@ -1828,7 +1829,7 @@
-   }
- }
- 
--int main(size_t argc, const char **argv)
-+int main(int argc, const char **argv)
- {
-   const char *cheader_file = 0;
-   bool compile = false;
---- src/tools/depbuild.cpp
+-- src/tools/depbuild.cpp
 +++ src/tools/depbuild.cpp
 @@ -24,6 +24,7 @@
  #include <iostream>

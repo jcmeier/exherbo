@@ -1,0 +1,15 @@
+# Copyright (c) 2010 Jan Meier
+# Distributed under the terms of the GNU General Public License v2
+require sourceforge [ suffix=tgz ]
+
+SUMMARY="nstx is a ip-over-DNS tunneling software"
+SLOT="0"
+LICENCES="GPL-2"
+PLATFORMS="~x86"
+# TODO: Respect C-Flags
+
+src_install() {
+	dobin nstxcd
+	dobin nstxd
+}
+

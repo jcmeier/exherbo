@@ -1,12 +1,12 @@
 # Copyright (c) 2009 Jan Meier
 # Distributed under the terms of the GNU General Public License v2
 
+require googlecode [ suffix=tar.gz ]
+
 SUMMARY="WvStreams aims to be an efficient, secure, and easy-to-use library for doing network and systems applications development in C++."
-HOMEPAGE="http://code.google.com/p/wvstreams/"
 LICENCES="LGPL-3"
 PLATFORMS="~x86"
 SLOT="0"
-DOWNLOADS="http://wvstreams.googlecode.com/files/${PNV}.tar.gz"
 DEFAULT_SRC_CONFIGURE_PARAMS=( "--without-dbus" )
 DEFAULT_SRC_COMPILE_PARAMS=( "-j1" ) 
 

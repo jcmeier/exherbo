@@ -1,11 +1,12 @@
 # Copyright (c) 2009 Jan Meier
 # Distributed under the terms of the GNU General Public License v2
 
+require googlecode
+
 SUMMARY="msn-pecan is a fork of the MSN plug-in from Pidgin."
-HOMEPAGE="http://code.google.com/p/msn-pecan/"
-DOWNLOADS="http://msn-pecan.googlecode.com/files/msn-pecan-${PV}.tar.bz2"
 LICENCES="GPL-2"
 DEPENDENCIES="
     net-im/pidgin
 "
 WORK="${WORKBASE}/msn-pecan-${PV}"
+

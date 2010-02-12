@@ -1,12 +1,13 @@
 # Copyright (c) 2009 Jan Meier
 # Distributed under the terms of the GNU General Public License v2
 
+require googlecode [ project=wvstreams suffix=tar.gz ]
+
 SUMMARY="WvDial is a program that makes it easy to connect your Linux workstation to the Internet."
 HOMEPAGE="http://alumnit.ca/wiki/index.php?page=WvDial"
 LICENCES="LGPL-3"
 PLATFORMS="~x86"
 SLOT="0"
-DOWNLOADS="http://wvstreams.googlecode.com/files/${PNV}.tar.gz"
 DEPENDENCIES="
     net-dialup/ppp
     net-libs/wvstreams[>=4.6]

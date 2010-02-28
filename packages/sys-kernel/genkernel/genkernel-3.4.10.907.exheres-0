@@ -6,18 +6,20 @@
 SUMMARY="Gentoo automatic kernel building scripts"
 HOMEPAGE="http://www.gentoo.org/"
 LICENCES="GPL-2"
-PLATFORMS="~x86"
+PLATFORMS="~amd64 ~x86"
 SLOT="0"
 
-VERSION_BUSYBOX='1.15.2'
-VERSION_DMAP='1.02.22'
+VERSION_BUSYBOX='1.15.3'
+VERSION_DMAP='1.02.28'
 VERSION_DMRAID='1.0.0.rc16'
-VERSION_E2FSPROGS='1.41.9'
-VERSION_LVM='2.02.53'
+VERSION_E2FSPROGS='1.41.10'
+VERSION_LVM='2.02.61'
+VERSION_ISCSI='2.0-871'
 
 RH_HOME="ftp://sources.redhat.com/pub"
 DM_HOME="http://people.redhat.com/~heinzm/sw/dmraid/src"
 BB_HOME="http://www.busybox.net/downloads"
+IS_HOME="http://www.open-iscsi.org/bits"
 
 DOWNLOADS="http://de-mirror.org/distro/gentoo/distfiles/${PNV}.tar.bz2
     ${DM_HOME}/dmraid-${VERSION_DMRAID}.tar.bz2
@@ -27,6 +29,7 @@ DOWNLOADS="http://de-mirror.org/distro/gentoo/distfiles/${PNV}.tar.bz2
     ${RH_HOME}/dm/device-mapper.${VERSION_DMAP}.tgz
     ${RH_HOME}/dm/old/device-mapper.${VERSION_DMAP}.tgz
     ${BB_HOME}/busybox-${VERSION_BUSYBOX}.tar.bz2
+    ${IS_HOME}/open-iscsi-${VERSION_ISCSI}.tar.gz
     mirror://sourceforge/e2fsprogs/e2fsprogs-${VERSION_E2FSPROGS}.tar.gz
 "
 
@@ -36,6 +39,7 @@ src_install() {
         -e "s:VERSION_E2FSPROGS:$VERSION_E2FSPROGS:" \
         -e "s:VERSION_LVM:$VERSION_LVM:" \
         -e "s:VERSION_BUSYBOX:$VERSION_BUSYBOX:" \
+        -e "s:VERSION_ISCSI:$VERSION_ISCSI:" \
         genkernel.conf || die "Could not adjust versions"
     insinto /etc
     doins genkernel.conf
@@ -56,6 +60,11 @@ src_install() {
         "${FETCHEDDIR}"/device-mapper.${VERSION_DMAP}.tgz \
         "${FETCHEDDIR}"/e2fsprogs-${VERSION_E2FSPROGS}.tar.gz \
         "${FETCHEDDIR}"/busybox-${VERSION_BUSYBOX}.tar.bz2 \
+        "${FETCHEDDIR}"/open-iscsi-${VERSION_ISCSI}.tar.gz \
         "${IMAGE}"/var/cache/genkernel/src || die "Copying distfiles failed"
 }
 
+src_prepare() {
+    # e2fsprogs ./configure no longer accepts --with-ldopts
+    sed -i -e 's:./configure  --with-ldopts=-static:LDFLAGS="-static" ./configure:g' gen_compile.sh
+}

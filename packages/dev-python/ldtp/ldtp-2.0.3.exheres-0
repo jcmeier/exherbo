@@ -1,0 +1,15 @@
+# Copyright (c) 2010 Jan Meier
+# Distributed under the terms of the GNU General Public License v2
+
+require distutils 
+
+SUMMARY="GUI testing framework"
+HOMEPAGE="http://ldtp.freedesktop.org"
+LICENCES="PSF"
+SLOT="0"
+DOWNLOADS="http://download.freedesktop.org/${PN}/$(ever major ).x/$(ever range 1-2).x/${PNV}.tar.gz"
+PLATFORMS="~x86"
+DEPENDENCIES="
+    dev-python/setuptools
+"
+

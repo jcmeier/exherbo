@@ -34,37 +34,37 @@ DOWNLOADS="http://de-mirror.org/distro/gentoo/distfiles/${PNV}.tar.bz2
 "
 
 src_install() {
-    sed -i -e "s:VERSION_DMAP:$VERSION_DMAP:" \
+    edo sed -i -e "s:VERSION_DMAP:$VERSION_DMAP:" \
         -e "s:VERSION_DMRAID:$VERSION_DMRAID:" \
         -e "s:VERSION_E2FSPROGS:$VERSION_E2FSPROGS:" \
         -e "s:VERSION_LVM:$VERSION_LVM:" \
         -e "s:VERSION_BUSYBOX:$VERSION_BUSYBOX:" \
         -e "s:VERSION_ISCSI:$VERSION_ISCSI:" \
-        genkernel.conf || die "Could not adjust versions"
+        genkernel.conf
     insinto /etc
     doins genkernel.conf
 
     doman genkernel.8 
-    dodoc AUTHORS ChangeLog README TODO
-
+    emagicdocs
     dobin genkernel
 
-    rm -f genkernel genkernel.8 AUTHORS ChangeLog README TODO genkernel.conf || die "rm failed!"
+    edo rm -f genkernel genkernel.8 AUTHORS ChangeLog README TODO genkernel.conf 
 
     insinto /usr/share/genkernel
     doins -r "${WORK}"/* 
     mkdir -p "${IMAGE}"/var/cache/genkernel/src
-    cp -f \
+    edo cp -f \
         "${FETCHEDDIR}"/dmraid-${VERSION_DMRAID}.tar.bz2 \
         "${FETCHEDDIR}"/LVM2.${VERSION_LVM}.tgz \
         "${FETCHEDDIR}"/device-mapper.${VERSION_DMAP}.tgz \
         "${FETCHEDDIR}"/e2fsprogs-${VERSION_E2FSPROGS}.tar.gz \
         "${FETCHEDDIR}"/busybox-${VERSION_BUSYBOX}.tar.bz2 \
         "${FETCHEDDIR}"/open-iscsi-${VERSION_ISCSI}.tar.gz \
-        "${IMAGE}"/var/cache/genkernel/src || die "Copying distfiles failed"
+        "${IMAGE}"/var/cache/genkernel/src
 }
 
 src_prepare() {
     # e2fsprogs ./configure no longer accepts --with-ldopts
-    sed -i -e 's:./configure  --with-ldopts=-static:LDFLAGS="-static" ./configure:g' gen_compile.sh
+    edo sed -i -e 's:./configure  --with-ldopts=-static:LDFLAGS="-static" ./configure:g' gen_compile.sh
 }
+

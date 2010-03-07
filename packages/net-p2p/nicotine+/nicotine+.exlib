@@ -12,7 +12,7 @@ DEPENDENCIES="
     dev-python/setuptools
     dev-python/mutagen
     dev-lang/python
-    gnome-bindings/pygtk
+    gnome-bindings/pygtk[>=2.12]
 "
 
 src_install() {

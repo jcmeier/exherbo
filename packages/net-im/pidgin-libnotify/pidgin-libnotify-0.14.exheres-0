@@ -1,0 +1,15 @@
+# Copyright (c) 2010 Jan Meier
+# Distributed under the terms of the GNU General Public License v2
+
+require sourceforge [ project=gaim-libnotify suffix=tar.gz ]
+
+SUMMARY="This plugin adds a libnotify interface to pidgin for enabling popup messages"
+LICENCES="GPL-2"
+PLATFORMS="~x86"
+SLOT="0"
+DEPENDENCIES="
+    net-im/pidgin[gtk]
+    x11-libs/gtk+
+    x11-libs/libnotify[>=0.3.2]
+"
+

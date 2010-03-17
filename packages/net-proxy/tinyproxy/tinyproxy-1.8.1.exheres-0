@@ -1,0 +1,16 @@
+# Copyright (c) 2010 Jan Meier
+# Distributed under the terms of the GNU General Public License v2
+
+SUMMARY="Tinyproxy is a light-weight HTTP proxy daemon for POSIX operating systems."
+HOMEPAGE="https://www.banu.com/tinyproxy/"
+DOWNLOADS="https://www.banu.com/pub/${PN}/$(ever range 1-2)/${PNV}.tar.bz2"
+SLOT="0"
+LICENCES="GPL-2"
+PLATFORMS="~x86"
+DEPENDENCIES="
+    user/nobody
+    group/nobody
+    app-doc/asciidoc
+"
+DEFAULT_SRC_CONFIGURE_PARAMS="--localstatedir=/var/"
+

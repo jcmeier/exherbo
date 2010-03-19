@@ -6,7 +6,7 @@ SUMMARY="librsync implements the rolling-checksum algorithm of remote file synch
 HOMEPAGE="http://librsync.sf.net"
 SLOT="0"
 LICENCES="LGPL-2"
-PLATFORMS="~x86"
+PLATFORMS="~amd64 ~x86"
 DEFAULT_SRC_CONFIGURE_PARAMS=(
     --hates=docdir
     --enable-shared

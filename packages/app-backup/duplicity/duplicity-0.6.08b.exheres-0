@@ -5,7 +5,7 @@ require distutils launchpad [ branch="$(ever range 1-2)-series" ]
 
 SUMMARY="Duplicity backs directories by producing encrypted tar-format volumes and uploading them to a remote or local file server."
 HOMEPAGE="http://duplicity.nongnu.org/"
-PLATFORMS="~x86"
+PLATFORMS="~amd64 ~x86"
 LICENCES="GPL-2"
 SLOT="0"
 MYOPTIONS="

@@ -6,7 +6,7 @@ require sourceforge [ pnv="${PN}-source-${PV}" suffix="tar.gz" ]
 SUMMARY="UNetbootin allows you to create bootable Live USB drives for a variety of Linux distributions, without requiring you to burn a CD."
 SLOT="0"
 LICENCES="GPL-2"
-PLATFORMS="~x86"
+PLATFORMS="~amd64 ~x86"
 DEPENDENCIES="
     x11-libs/qt:4
     run:

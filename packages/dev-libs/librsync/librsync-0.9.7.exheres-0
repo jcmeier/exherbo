@@ -7,5 +7,8 @@ HOMEPAGE="http://librsync.sf.net"
 SLOT="0"
 LICENCES="LGPL-2"
 PLATFORMS="~x86"
-DEFAULT_SRC_CONFIGURE_PARAMS="--hates=docdir"
+DEFAULT_SRC_CONFIGURE_PARAMS=(
+    --hates=docdir
+    --enable-shared
+)
 

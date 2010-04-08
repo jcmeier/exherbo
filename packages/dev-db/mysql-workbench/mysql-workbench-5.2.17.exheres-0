@@ -1,0 +1,23 @@
+# Copyright (c) 2010 Jan Meier
+# Distributed under the terms of the GNU General Public License v2
+
+MY_PNV="${PN}-oss-${PV}"
+SUMMARY="MySQL Workbench is a cross-platform, visual database design tool developed by MySQL"
+HOMEPAGE="http://wb.mysql.com/"
+DOWNLOADS="mirror://mysql/Downloads/MySQLGUITools/${MY_PNV}.tar.gz"
+SLOT="0"
+LICENCES="GPL-2"
+PLATFORMS="~x86"
+DEPENDENCIES="
+    app-arch/libzip
+    dev-libs/boost
+    dev-libs/glib
+    dev-db/mysql
+    dev-lang/lua
+    gnome-platform/libglade
+    gnome-platform/libgnome
+    gnome-bindings/gtkmm
+"
+DEFAULT_SRC_CONFIGURE_PARAMS=( "--enable-i18n" )
+WORK="${WORKBASE}/${MY_PNV}"
+

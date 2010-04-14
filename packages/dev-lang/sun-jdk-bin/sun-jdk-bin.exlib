@@ -71,6 +71,8 @@ DEPENDENCIES="
         print? ( net-print/cups     ) [[ note = [ cups only needed for /usr/sbin/lpc ] ]]
 "
 
+RESTRICT="strip"
+
 BUGS_TO="replica@exherbo.org"
 
 WORK="${WORKBASE}"/jdk$(ever replace 3 _)

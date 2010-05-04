@@ -1,6 +1,6 @@
 # Copyright (c) 2010 Jan Meier
 # Distributed under the terms of the GNU General Public License v2
-require launchpad [ branch=14 suffix=tar.bz2 ]
+require launchpad [ branch=16 suffix=tar.bz2 ]
 
 SUMMARY="GUI frontend for the duplicity backup tool"
 PLATFORMS="~x86"

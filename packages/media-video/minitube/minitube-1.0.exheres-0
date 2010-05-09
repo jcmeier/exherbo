@@ -1,0 +1,23 @@
+# Copyright (c) 2010 Jan Meier
+# Distributed under the terms of the GNU General Public License v2
+
+SUMMARY="Minitube is a native YouTube client."
+HOMEPAGE="http://flavio.tordini.org/minitube"
+DOWNLOADS="http://flavio.tordini.org/files/${PN}/${PNV}.tar.gz"
+SLOT="0"
+LICENCES="GPL-3"
+PLATFORMS="~x86"
+DEPENDENCIES="
+    media-libs/phonon
+    x11-libs/qt[>=4.5]
+"
+WORK="${WORKBASE}/${PN}"
+src_compile() {
+    qmake
+    default
+}
+
+src_install() {
+    emake INSTALL_ROOT="${IMAGE}" -j1 install
+}
+

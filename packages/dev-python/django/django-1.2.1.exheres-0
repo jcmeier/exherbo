@@ -3,5 +3,5 @@
 
 require django
 
-PLATFORMS="~x86"
+PLATFORMS="~amd64 ~x86"
 

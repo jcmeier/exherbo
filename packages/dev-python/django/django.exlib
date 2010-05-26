@@ -6,7 +6,7 @@ require distutils
 MY_PNV=${PNV^}
 SUMMARY="The Web framework for perfectionists with deadlines"
 HOMEPAGE="http://www.djangoproject.com"
-DOWNLOADS="http://media.djangoproject.com/releases/${PV}/${MY_PNV}.tar.gz"
+DOWNLOADS="http://media.djangoproject.com/releases/$(ever range -2)/${MY_PNV}.tar.gz"
 
 LICENCES="BSD"
 SLOT="0"

@@ -1,7 +1,7 @@
 # Copyright (c) 2010 Jan Meier
 # Distributed under the terms of the GNU General Public License v2
 
-MY_PNV="${PN}-oss-${PV}"
+MY_PNV="${PN}-ce-${PV}"
 SUMMARY="MySQL Workbench is a cross-platform, visual database design tool developed by MySQL"
 HOMEPAGE="http://wb.mysql.com/"
 DOWNLOADS="mirror://mysql/Downloads/MySQLGUITools/${MY_PNV}.tar.gz"

@@ -12,7 +12,6 @@ MYOPTIONS="
     ftp [[ description = [ Enable transfering backups to FTP servers ] ]]
 "
 
-# boto is an optional dependency for storing on amazon cloud (http://code.google.com/p/boto/)
 DEPENDENCIES="
     app-crypt/gnupg
     dev-libs/librsync

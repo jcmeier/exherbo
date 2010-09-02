@@ -13,7 +13,6 @@ PLATFORMS="~x86"
 
 DEPENDENCIES="
     build+run:
-       media-libs/libdvdread
        media-libs/libmpeg2
        media-libs/xine-lib
        media/ffmpeg

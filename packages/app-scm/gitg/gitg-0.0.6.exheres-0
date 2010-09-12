@@ -7,7 +7,7 @@ SUMMARY="gitg is a git repository viewer targeting gtk+/GNOME."
 HOMEPAGE="http://trac.novowork.com/gitg/"
 SLOT="0"
 LICENCES="GPL-2"
-PLATFORMS="~x86"
+PLATFORMS="~amd64 ~x86"
 DEPENDENCIES="
     dev-libs/glib:2
     dev-scm/git

@@ -5,7 +5,7 @@ require googlecode [ suffix=tar.gz ]
 
 SUMMARY="WvStreams aims to be an efficient, secure, and easy-to-use library for doing network and systems applications development in C++."
 LICENCES="LGPL-3"
-PLATFORMS="~x86"
+PLATFORMS="~amd64 ~x86"
 SLOT="0"
 DEFAULT_SRC_CONFIGURE_PARAMS=( "--without-dbus" )
 DEFAULT_SRC_COMPILE_PARAMS=( "-j1" ) 

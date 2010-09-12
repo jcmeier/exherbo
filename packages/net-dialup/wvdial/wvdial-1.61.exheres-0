@@ -6,7 +6,7 @@ require googlecode [ project=wvstreams suffix=tar.gz ]
 SUMMARY="WvDial is a program that makes it easy to connect your Linux workstation to the Internet."
 HOMEPAGE="http://alumnit.ca/wiki/index.php?page=WvDial"
 LICENCES="LGPL-3"
-PLATFORMS="~x86"
+PLATFORMS="~amd64 ~x86"
 SLOT="0"
 DEPENDENCIES="
     net-dialup/ppp

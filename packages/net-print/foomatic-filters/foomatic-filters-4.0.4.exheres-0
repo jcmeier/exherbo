@@ -6,7 +6,7 @@ HOMEPAGE="http://www.linuxfoundation.org/collaborate/workgroups/openprinting/dat
 DOWNLOADS="http://www.openprinting.org/download/foomatic/${PNV}.tar.gz"
 SLOT="0"
 LICENCES="GPL-2"
-PLATFORMS="~x86"
+PLATFORMS="~amd64 ~x86"
 
 src_install() {
     keepdir /etc/foomatic/direct

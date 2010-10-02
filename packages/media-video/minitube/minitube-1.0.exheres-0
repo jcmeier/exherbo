@@ -6,7 +6,7 @@ HOMEPAGE="http://flavio.tordini.org/minitube"
 DOWNLOADS="http://flavio.tordini.org/files/${PN}/${PNV}.tar.gz"
 SLOT="0"
 LICENCES="GPL-3"
-PLATFORMS="~x86"
+PLATFORMS="~amd64 ~x86"
 DEPENDENCIES="
     media-libs/phonon
     x11-libs/qt[>=4.5]

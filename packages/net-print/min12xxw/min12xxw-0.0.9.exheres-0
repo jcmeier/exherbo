@@ -6,6 +6,6 @@ HOMEPAGE="http://hinterbergen.de/mala/min12xxw/"
 DOWNLOADS="http://hinterbergen.de/mala/min12xxw/${PNV}.tar.gz"
 SLOT="0"
 LICENCES="GPL-2"
-PLATFORMS="~x86"
+PLATFORMS="~x86 ~amd64"
 DEFAULT_SRC_CONFIGURE_PARAMS="--hates=docdir"
 

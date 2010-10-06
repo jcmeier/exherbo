@@ -4,4 +4,4 @@
 require msn-pecan
 
 SLOT="0"
-PLATFORMS="~x86"
+PLATFORMS="~amd64 ~x86"

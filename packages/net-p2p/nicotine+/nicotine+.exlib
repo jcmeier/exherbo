@@ -1,11 +1,10 @@
 # Copyright (c) 2009 Jan Meier
 # Distributed under the terms of the GNU General Public License v2
 
-require distutils
+require distutils sourceforge [ project=nicotine-plus ]
 
 SUMMARY="Nicotine is a SoulSeek client written in Python, based on the PySoulSeek project by Alexander Kanavin."
 HOMEPAGE="http://nicotine-plus.org/ http://nicotine-plus.sf.net"
-DOWNLOADS="http://www.nicotine-plus.org/files/nicotine+-${PV}.tar.bz2"
 LICENCES="GPL-3"
 SLOT="0"
 DEPENDENCIES="

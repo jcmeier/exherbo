@@ -3,5 +3,5 @@
 
 require nicotine+
 
-PLATFORMS="~x86"
+PLATFORMS="~amd64 ~X86"
 

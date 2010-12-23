@@ -103,7 +103,7 @@ src_install() {
     local java_home="/usr/$(get_libdir)/${PN}-${SLOT}"
 
     dodir "${java_home}"
-
+    edo rmdir lib/visualvm/platform/docs
     edo cp -a bin include jre lib man "${IMAGE}${java_home}"
     keepdir "${java_home}"/jre/lib/applet
 

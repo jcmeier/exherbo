@@ -1,15 +1,9 @@
 # Copyright 2009 Sterling X. Winter <replica@exherbo.org>
 # Distributed under the terms of the GNU General Public License v2
 
-# This currently doesn't handle :1.4, it's only for :1.5 and :1.6.
-
 require java [ virtual_jdk_and_jre_deps=false ] java-jdk [ use_versioned_java_home=${SLOT} ] multilib
 
-if [[ ${SLOT} == 1.5 ]] ; then
-    MY_PV="5.0u$(ever range 4)"
-else
-    MY_PV="$(ever range 2)u$(ever range 4)"
-fi
+MY_PV="$(ever range 2)u$(ever range 4)"
 
 MY_PN_AMD64="jdk-${MY_PV}-dlj-linux-amd64"
 MY_PN_X86="jdk-${MY_PV}-dlj-linux-i586"
@@ -73,7 +67,7 @@ DEPENDENCIES="
 
 RESTRICT="strip"
 
-BUGS_TO="replica@exherbo.org"
+BUGS_TO="jan@codejunky.org"
 
 WORK="${WORKBASE}"/jdk$(ever replace 3 _)
 
@@ -86,11 +80,6 @@ src_compile() {
     # JDK bundles, so do it manually. CDS isn't supported at all for 64-bit.
     # http://java.sun.com/javase/6/docs/technotes/guides/vm/class-data-sharing.html
     if option platform:x86 ; then
-        if ever at_least 1.5 ${SLOT} ; then
-            einfo "Generating Class Data Sharing archive for the client VM"
-            edo nonfatal "${WORK}"/bin/java -client -Xshare:dump ||
-                ewarn "Unable to create CDS archive for client VM on this platform"
-        fi
         if ever at_least 1.6 ${SLOT} ; then
             einfo "Generating Class Data Sharing archive for the server VM"
             edo nonfatal "${WORK}"/bin/java -server -Xshare:dump ||

@@ -1,0 +1,15 @@
+# Copyright 2011 Fabian Holler
+# Distributed under the terms of the GNU General Public License v2
+
+require sourceforge [ project="w-calc" ]
+
+SUMMARY="very capable console calculator with intuitive expressions"
+LICENCES="GPL-2"
+SLOT="0"
+PLATFORMS="~amd64"
+DEPENDENCIES="
+    build+run:
+        dev-libs/gmp
+        dev-libs/mpfr
+"
+

@@ -12,6 +12,9 @@ DEPENDENCIES="
     dev-libs/libpcap
     sys-libs/ncurses
     net-libs/libnl
+    run:
+        group/kismet
 "
 WORK="${WORKBASE}/kismet-${VERSION}"
+DEFAULT_SRC_CONFIGURE_PARAMS="--with-suidgroup=kismet"
 

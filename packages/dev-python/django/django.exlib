@@ -12,8 +12,11 @@ LICENCES="BSD"
 SLOT="0"
 
 DEPENDENCIES="
-    dev-python/setuptools
-    dev-python/mysql-python
+    build:
+        dev-python/setuptools
+    suggestion:
+        dev-python/mysql-python [[ description = [ To use mysql database as object storage backend ] ]]
+        dev-python/psycopg2 [[ description = [ To use postgresql database as object storage backend ] ]]
 "
 
 WORK=${WORKBASE}/${MY_PNV}

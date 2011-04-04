@@ -1,0 +1,31 @@
+Source: Kim Højgaard-Hansen
+Upstream: yes, http://code.google.com/p/wvstreams/issues/detail?id=31
+Reason: fix build errors - add missing includes for lstat() etc.
+
+From 778827c610a3cb5e42ac7096c25041aa371f77b3 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Kim=20H=C3=B8jgaard-Hansen?= <kimrhh@exherbo.org>
+Date: Mon, 4 Apr 2011 14:00:31 +0200
+Subject: [PATCH] fix compile error - always include <sys/types.h> and <sys/stats.h>
+
+---
+ streams/wvatomicfile.cc |    3 +--
+ 1 files changed, 1 insertions(+), 2 deletions(-)
+
+diff --git a/streams/wvatomicfile.cc b/streams/wvatomicfile.cc
+index 65ae202..242316a 100644
+--- a/streams/wvatomicfile.cc
++++ b/streams/wvatomicfile.cc
+@@ -11,9 +11,8 @@
+ #include "wvfileutils.h"
+ #include "wvstrutils.h"
+ 
+-#ifdef MACOS
+ #include <sys/stat.h>
+-#endif
++#include <sys/types.h>
+ 
+ WvAtomicFile::WvAtomicFile(WvStringParm filename, int flags, mode_t create_mode)
+     : tmp_file(WvString::null)
+-- 
+1.7.4.1
+

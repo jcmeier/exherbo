@@ -1,0 +1,29 @@
+Source: Kim Højgaard-Hansen
+Upstream: yes, http://code.google.com/p/wvstreams/issues/detail?id=30
+Reason: fix compile error - missing include for chmod()
+
+From e02e7100a84ce136b9ee7266e636d7adfa0a78d9 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Kim=20H=C3=B8jgaard-Hansen?= <kimrhh@exherbo.org>
+Date: Mon, 4 Apr 2011 13:43:09 +0200
+Subject: [PATCH] always include <sys/stats.h> to get chmod()
+
+---
+ ipstreams/wvunixdgsocket.cc |    3 ---
+ 1 files changed, 0 insertions(+), 3 deletions(-)
+
+diff --git a/ipstreams/wvunixdgsocket.cc b/ipstreams/wvunixdgsocket.cc
+index 41d2911..2dfb72a 100644
+--- a/ipstreams/wvunixdgsocket.cc
++++ b/ipstreams/wvunixdgsocket.cc
+@@ -1,8 +1,5 @@
+ #include "wvunixdgsocket.h"
+-#ifdef MACOS
+-#include <sys/types.h>
+ #include <sys/stat.h>
+-#endif
+ 
+ WvUnixDGSocket::WvUnixDGSocket(WvStringParm filename, bool _server, int perms)
+     : socketfile(filename)
+-- 
+1.7.4.1
+

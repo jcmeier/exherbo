@@ -1,7 +1,7 @@
 # Copyright 2009 Sterling X. Winter <replica@exherbo.org>
 # Distributed under the terms of the GNU General Public License v2
 
-require java [ virtual_jdk_and_jre_deps=false ] java-jdk [ use_versioned_java_home=${SLOT} ] multilib
+require java [ virtual_jdk_and_jre_deps=false ] java-jdk [ use_versioned_java_home=${SLOT} ]
 
 MY_PV="$(ever range 2)u$(ever range 4)"
 
@@ -89,7 +89,7 @@ src_compile() {
 }
 
 src_install() {
-    local java_home="/usr/$(get_libdir)/${PN}-${SLOT}"
+    local java_home="/usr/${LIBDIR}/${PN}-${SLOT}"
 
     dodir "${java_home}"
     edo rmdir lib/visualvm/platform/docs
@@ -107,7 +107,7 @@ src_install() {
 
     if option jce ; then
         local jce_dir="${java_home}"/jre/lib/security \
-              sun_jce_dir=/usr/$(get_libdir)/sun-jce-${SLOT}
+              sun_jce_dir=/usr/${LIBDIR}/sun-jce-${SLOT}
 
         # Move the default limited-strength policy files and replace them with
         # symlinks to unlimited-strength versions from the sun-jce package.

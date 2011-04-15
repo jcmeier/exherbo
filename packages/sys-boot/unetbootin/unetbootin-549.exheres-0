@@ -12,6 +12,7 @@ DEPENDENCIES="
     run:
         app-arch/p7zip
         sys-fs/mtools
+        base/syslinux
 "
 WORK="${WORKBASE}"
 

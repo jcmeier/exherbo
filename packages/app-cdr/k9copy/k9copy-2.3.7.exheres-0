@@ -24,5 +24,3 @@ DEPENDENCIES="
 
 WORK="${WORKBASE}/${PNV}-Source/"
 
-DEFAULT_SRC_PREPARE_PATCHES=( "${FILES}"/${PNV}-gcc45.patch )
-

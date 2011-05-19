@@ -1,0 +1,12 @@
+# Copyright (c) 2011 Ridai Govinda Pombo
+# Distributed under the terms of the GNU General Public License v2
+
+require googlecode
+
+SUMMARY="pidgin-musictracker is a plugin for pidgin which publicises your currently playing media to your contacts"
+LICENCES="GPL-2"
+DEPENDENCIES="
+    net-im/pidgin
+"
+WORK="${WORKBASE}/pidgin-musictracker-${PV}"
+

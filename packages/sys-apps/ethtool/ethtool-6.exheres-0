@@ -5,6 +5,6 @@ require sourceforge [ project="gkernel" suffix="tar.gz" ]
 SUMMARY="Tool for getting information from ethernet devices"
 SLOT="0"
 LICENCES="GPL-2"
-PLATFORMS="~x86"
+PLATFORMS="~amd64 ~x86"
 DEFAULT_SRC_CONFIGURE_PARAMS="--hates=docdir"
 

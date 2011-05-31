@@ -5,7 +5,7 @@ require sourceforge [ project=gaim-libnotify suffix=tar.gz ]
 
 SUMMARY="This plugin adds a libnotify interface to pidgin for enabling popup messages"
 LICENCES="GPL-2"
-PLATFORMS="~x86 ~amd64"
+PLATFORMS="~x86"
 SLOT="0"
 DEPENDENCIES="
     net-im/pidgin[gtk]
